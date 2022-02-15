@@ -25,7 +25,6 @@ const objLat = (obj) => {
     function printeObj(obj) {
         return ("my name is " + obj.firstName.charAt(0).toUpperCase() + obj.firstName.slice(1) + " " + obj.lastName.charAt(0).toUpperCase() + obj.lastName.slice(1) + " I am " + obj.age + " YO, and I love " + obj.hobby + ".");
     }
-
     return printeObj(obj);
 };
 // -------------------------------------------------------------------------------------------------------
@@ -91,6 +90,37 @@ const objLat = (obj) => {
 
 const cvFormatter = (arr) => {
     // write your code here
+    function cvInfo(cvs) {
+        let newCvs = [];
+        for (let i = 0; i < cvs.length; i++) {
+            if (cvs[i].yearsOfExperience > 1) {
+
+                if (cvs[i].firstName == null) {
+                    let d = {
+                        fullName: cvs[i].lastName,
+                        tech: cvs[i].tech
+                    };
+                    newCvs.push(d);
+                } else if (cvs[i].lastName == null) {
+                    let d = {
+                        fullName: cvs[i].firstName,
+                        tech: cvs[i].tech
+                    };
+                    newCvs.push(d);
+                } else {
+                    let d = {
+                        fullName: cvs[i].firstName + " " + cvs[i].lastName,
+                        tech: cvs[i].tech
+                    };
+                    newCvs.push(d);
+                }
+
+            }
+        }
+        return newCvs;
+    }
+
+    return (cvInfo(arr));
 };
 // -------------------------------------------------------------------------------------------------------
 
@@ -117,35 +147,6 @@ const cvFormatter = (arr) => {
 
 const applicationsStatics = (arr) => {
     // write your code here
-    function cvInfo(cvs) {
-        let newCvs = [{}];
-        let counter = 0;
-        for (let i = 0; i < cvs.length; i++) {
-            if (cvs[i].yearsOfExperience > 1) {
-
-                if (cvs[i].firstName == null) {
-                    newCvs[counter] = {
-                        fullName: cvs[i].LastName,
-                        tech: cvs[i].tech
-                    };
-                } else if (cvs[i].LastName == null) {
-                    newCvs[counter] = {
-                        fullName: cvs[i].firstName,
-                        tech: cvs[i].tech
-                    };
-                } else {
-                    newCvs[counter] = {
-                        fullName: cvs[i].firstName + " " + cvs[i].LastName,
-                        tech: cvs[i].tech
-                    };
-                }
-                counter++;
-            }
-        }
-        return newCvs;
-    }
-
-    return (cvInfo(arr));
 };
 // -------------------------------------------------------------------------------------------------------
 
