@@ -66,9 +66,9 @@ const objectCounter = (obj) => {
 const stringReverse = (str) => {
     // write your code here
     let arrStr = str.split(' ');
-    let result = arrStr.reduce((previousValue, currentValue, currentIndex) => {
+    let result = arrStr.reduce((previousValue, currentValue) => {
         return (currentValue + " " + previousValue)
-    })
+    })``
     return result;
 }
 // -------------------------------------------------------------------------------------------------------
